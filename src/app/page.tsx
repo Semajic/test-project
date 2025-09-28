@@ -1,103 +1,134 @@
-import Image from "next/image";
+import { Navbar01 } from '@/components/ui/shadcn-io/navbar-01';
+import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from '@/components/ui/carousel';
+import { Card, CardContent } from '@/components/ui/card';
+import Image from "../../public/restaurantbg.png";
+
+const imageData = [
+  { src: "/img1.png", alt: "Image 1" },
+  { src: "/img2.png", alt: "Image 2" },
+  { src: "/img3.png", alt: "Image 3" },
+  { src: "/img4.png", alt: "Image 4" },
+  { src: "/img5.png", alt: "Image 5" },
+  { src: "/img6.png", alt: "Image 6" },
+  { src: "/img7.png", alt: "Image 7" },
+  { src: "/img8.png", alt: "Image 8" },
+];
+
+const testimonials = [
+  {
+    quote: "Absolutely wonderful experience! The food and atmosphere were perfect.",
+    author: "— Alex P.",
+  },
+  {
+    quote: "Studio Null exceeded all my expectations. Highly recommended!",
+    author: "— Jamie L.",
+  },
+  {
+    quote: "A must-visit spot. The staff made us feel right at home.",
+    author: "— Morgan S.",
+  },
+];
+
+function HeroSection() {
+  return (
+    <div
+      className="flex w-full items-center justify-center"
+      style={{
+        backgroundImage: `url(${Image.src})`,
+        backgroundSize: 'cover',
+        backgroundPosition: 'center',
+        minHeight: '95vh',
+        width: '100vw',
+        overflow: 'visible',
+      }}
+    >
+      <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-primary-foreground text-center drop-shadow-lg">
+        Welcome to Studio Null
+      </h1>
+    </div>
+  );
+}
+
+function GallerySection() {
+  return (
+    <section className="w-full mx-auto mb-12 px-4 bg-muted p-6 items-center">
+      <h2 className="text-3xl font-semibold mb-6 text-center text-primary">Gallery</h2>
+      <Carousel className="w-full max-w-xs sm:max-w-xs md:max-w-sm lg:max-w-md xl:max-w-lg 2xl:max-w-xl mx-auto" orientation="horizontal">
+        <CarouselContent>
+          {imageData.map((img, index) => (
+            <CarouselItem key={index}>
+              <div className="p-2">
+                <Card>
+                    <CardContent className="flex items-center justify-center px-10 py-4">
+                      <img
+                        src={img.src}
+                        alt={img.alt}
+                        className="object-cover w-full h-full rounded-md"
+                      />
+                    </CardContent>
+                </Card>
+              </div>
+            </CarouselItem>
+          ))}
+        </CarouselContent>
+        <CarouselPrevious />
+        <CarouselNext />
+      </Carousel>
+    </section>
+  );
+}
+
+function TestimonialsSection() {
+  return (
+    <section className="w-full max-w-4xl mx-auto mt-12 mb-18 px-4">
+      <h2 className="text-3xl font-semibold mb-6 text-center text-primary">Testimonials</h2>
+      <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+        {testimonials.map((testimonial, idx) => (
+          <div key={idx} className="bg-card rounded-lg shadow p-6">
+            <p className="italic mb-4 text-muted-foreground">"{testimonial.quote}"</p>
+            <div className="font-bold text-secondary-foreground">{testimonial.author}</div>
+          </div>
+        ))}
+      </div>
+    </section>
+  );
+}
+
+function Footer() {
+  return (
+    <footer className="w-full h-24 flex items-center justify-center border-t">
+      <a
+        className="flex items-center justify-center gap-2"
+        href="https://vercel.com?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        Powered by{' '}
+        <span className="h-6 ml-2">
+          <img src="/vercel.svg" alt="Vercel Logo" width={72} height={16} />
+        </span>
+      </a>
+    </footer>
+  );
+}
 
 export default function Home() {
   return (
-    <div className="font-sans grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20">
-      <main className="flex flex-col gap-[32px] row-start-2 items-center sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={180}
-          height={38}
-          priority
-        />
-        <ol className="font-mono list-inside list-decimal text-sm/6 text-center sm:text-left">
-          <li className="mb-2 tracking-[-.01em]">
-            Get started by editing{" "}
-            <code className="bg-black/[.05] dark:bg-white/[.06] font-mono font-semibold px-1 py-0.5 rounded">
-              src/app/page.tsx
-            </code>
-            .
-          </li>
-          <li className="tracking-[-.01em]">
-            Save and see your changes instantly.
-          </li>
-        </ol>
+    <div className="flex min-h-screen flex-col items-center justify-between overflow-hidden">
+      {/* Navbar */}
+      <div className="relative w-full font-poppins">
+        <Navbar01 />
+      </div>
 
-        <div className="flex gap-4 items-center flex-col sm:flex-row">
-          <a
-            className="rounded-full border border-solid border-transparent transition-colors flex items-center justify-center bg-foreground text-background gap-2 hover:bg-[#383838] dark:hover:bg-[#ccc] font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 sm:w-auto"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={20}
-              height={20}
-            />
-            Deploy now
-          </a>
-          <a
-            className="rounded-full border border-solid border-black/[.08] dark:border-white/[.145] transition-colors flex items-center justify-center hover:bg-[#f2f2f2] dark:hover:bg-[#1a1a1a] hover:border-transparent font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 w-full sm:w-auto md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Read our docs
-          </a>
-        </div>
+      {/* Main content */}
+      <main className="flex w-full flex-1 flex-col items-center justify-center text-center font-poppins">
+        <HeroSection />
+        <GallerySection />
+        <TestimonialsSection />
       </main>
-      <footer className="row-start-3 flex gap-[24px] flex-wrap items-center justify-center">
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/file.svg"
-            alt="File icon"
-            width={16}
-            height={16}
-          />
-          Learn
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/window.svg"
-            alt="Window icon"
-            width={16}
-            height={16}
-          />
-          Examples
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/globe.svg"
-            alt="Globe icon"
-            width={16}
-            height={16}
-          />
-          Go to nextjs.org →
-        </a>
-      </footer>
+
+      {/* Footer */}
+      <Footer />
     </div>
   );
 }
