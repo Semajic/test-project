@@ -51,14 +51,26 @@ function HeroSection() {
 
 function GallerySection() {
   return (
-    <section className="w-full mx-auto mb-12 px-4 bg-muted p-6 items-center">
-      <h2 className="text-3xl font-semibold mb-6 text-center text-primary">Gallery</h2>
-      <Carousel className="w-full max-w-xs sm:max-w-xs md:max-w-sm lg:max-w-md xl:max-w-lg 2xl:max-w-xl mx-auto" orientation="horizontal">
-        <CarouselContent>
-          {imageData.map((img, index) => (
-            <CarouselItem key={index}>
-              <div className="p-2">
-                <Card>
+    <section className="w-full flex flex-col items-center mx-auto mb-12 px-4 bg-muted p-6">
+      <Card className="mb-8 w-full max-w-2xl bg-transparent border-0 shadow-none items-center">
+        <CardContent className="flex items-center px-10 py-4">
+          <svg height="80" width="4" className="mr-6">
+            <rect width="4" height="80" fill="var(--primary)" rx="2" />
+          </svg>
+          <div className="flex flex-col items-start">
+            <h2 className="text-3xl sm:text-md md:text-3xl lg:text-4xl font-semibold text-primary">Gallery</h2>
+            <p className="text-sm text-muted-foreground">A selection of our favorite moments</p>
+          </div>
+        </CardContent>
+      </Card>
+
+      <div className="w-full flex justify-center">
+        <Carousel className="w-full max-w-xs sm:max-w-xs md:max-w-sm lg:max-w-md xl:max-w-lg 2xl:max-w-xl" orientation="horizontal">
+          <CarouselContent>
+            {imageData.map((img, index) => (
+              <CarouselItem key={index}>
+                <div className="p-2">
+                  <Card>
                     <CardContent className="flex items-center justify-center px-10 py-4">
                       <img
                         src={img.src}
@@ -66,14 +78,15 @@ function GallerySection() {
                         className="object-cover w-full h-full rounded-md"
                       />
                     </CardContent>
-                </Card>
-              </div>
-            </CarouselItem>
-          ))}
-        </CarouselContent>
-        <CarouselPrevious />
-        <CarouselNext />
-      </Carousel>
+                  </Card>
+                </div>
+              </CarouselItem>
+            ))}
+          </CarouselContent>
+          <CarouselPrevious className="cursor-pointer" />
+          <CarouselNext className="cursor-pointer" />
+        </Carousel>
+      </div>
     </section>
   );
 }
