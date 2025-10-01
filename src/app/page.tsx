@@ -1,6 +1,7 @@
 import { Navbar01 } from '@/components/ui/shadcn-io/navbar-01';
 import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from '@/components/ui/carousel';
 import { Card, CardContent } from '@/components/ui/card';
+import { Button } from '@/components/ui/button';
 import Image from "../../public/restaurantbg.png";
 
 const imageData = [
@@ -52,28 +53,33 @@ function HeroSection() {
 function GallerySection() {
   return (
     <section className="w-full mx-auto mb-12 px-4 bg-muted p-6 items-center">
-      <h2 className="text-3xl font-semibold mb-6 text-center text-primary">Gallery</h2>
-      <Carousel className="w-full max-w-xs sm:max-w-xs md:max-w-sm lg:max-w-md xl:max-w-lg 2xl:max-w-xl mx-auto" orientation="horizontal">
-        <CarouselContent>
-          {imageData.map((img, index) => (
-            <CarouselItem key={index}>
-              <div className="p-2">
-                <Card>
-                    <CardContent className="flex items-center justify-center px-10 py-4">
-                      <img
-                        src={img.src}
-                        alt={img.alt}
-                        className="object-cover w-full h-full rounded-md"
-                      />
-                    </CardContent>
-                </Card>
-              </div>
-            </CarouselItem>
-          ))}
-        </CarouselContent>
-        <CarouselPrevious />
-        <CarouselNext />
-      </Carousel>
+      <span className="flex justify-center p-0 gap-6 flex-row w-full">
+        <h2 className="text-3xl font-semibold mb-6 text-center text-primary">Gallery</h2>
+        <Button variant="link" className="text-sm font-medium px-4 h-9 rounded-md shadow-sm">View All</Button>
+      </span>
+      <div className="hidden md:block">
+        <Carousel className="w-full max-w-xs sm:max-w-xs md:max-w-sm lg:max-w-md xl:max-w-lg 2xl:max-w-xl mx-auto" orientation="horizontal">
+          <CarouselContent>
+        {imageData.map((img, index) => (
+          <CarouselItem key={index}>
+            <div className="p-2">
+          <Card>
+            <CardContent className="flex items-center justify-center px-10 py-4">
+              <img
+            src={img.src}
+            alt={img.alt}
+            className="object-cover w-full h-full rounded-md"
+              />
+            </CardContent>
+          </Card>
+            </div>
+          </CarouselItem>
+        ))}
+          </CarouselContent>
+          <CarouselPrevious />
+          <CarouselNext />
+        </Carousel>
+      </div>
     </section>
   );
 }
