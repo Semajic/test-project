@@ -1,4 +1,4 @@
-import { Navbar01 } from '@/components/ui/shadcn-io/navbar-01';
+import { Navbar02 } from '@/components/ui/shadcn-io/navbar-02';
 import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from '@/components/ui/carousel';
 import { Card, CardContent } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
@@ -68,21 +68,21 @@ function GallerySection() {
       <div className="w-full flex justify-center">
         <Carousel className="w-full max-w-xs sm:max-w-xs md:max-w-sm lg:max-w-md xl:max-w-lg 2xl:max-w-xl" orientation="horizontal">
           <CarouselContent>
-            {imageData.map((img, index) => (
-              <CarouselItem key={index}>
-                <div className="p-2">
-                  <Card>
-                    <CardContent className="flex items-center justify-center px-10 py-4">
-                      <img
-                        src={img.src}
-                        alt={img.alt}
-                        className="object-cover w-full h-full rounded-md"
-                      />
-                    </CardContent>
-                  </Card>
-                </div>
-              </CarouselItem>
-            ))}
+        {imageData.map((img, index) => (
+          <CarouselItem key={index}>
+            <div className="p-2">
+          <Card>
+            <CardContent className="flex items-center justify-center px-10 py-4">
+              <img
+            src={img.src}
+            alt={img.alt}
+            className="object-cover w-full h-full rounded-md"
+              />
+            </CardContent>
+          </Card>
+            </div>
+          </CarouselItem>
+        ))}
           </CarouselContent>
           <CarouselPrevious className="cursor-pointer" />
           <CarouselNext className="cursor-pointer" />
@@ -99,7 +99,7 @@ function TestimonialsSection() {
       <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
         {testimonials.map((testimonial, idx) => (
           <div key={idx} className="bg-card rounded-lg shadow p-6">
-            <p className="italic mb-4 text-muted-foreground">"{testimonial.quote}"</p>
+            <p className="italic mb-4 text-muted-foreground">&ldquo;{testimonial.quote}&rdquo;</p>
             <div className="font-bold text-secondary-foreground">{testimonial.author}</div>
           </div>
         ))}
@@ -131,7 +131,7 @@ export default function Home() {
     <div className="flex min-h-screen flex-col items-center justify-between overflow-hidden">
       {/* Navbar */}
       <div className="relative w-full font-poppins">
-        <Navbar01 />
+        <Navbar02 />
       </div>
 
       {/* Main content */}

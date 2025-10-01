@@ -208,7 +208,7 @@ export const Navbar01 = React.forwardRef<HTMLElement, Navbar01Props>(
                 <div className="text-2xl">
                   {logo}
                 </div>
-                <span className="hidden font-bold text-xl sm:inline-block">Studio Null</span>
+                <span className="hidden font-bold text-xl sm:inline-block">Axiom</span>
               </button>
               {/* Navigation menu */}
               {!isMobile && (
@@ -219,9 +219,9 @@ export const Navbar01 = React.forwardRef<HTMLElement, Navbar01Props>(
                       <Button
                         variant={link.active ? "secondary" : "ghost"}
                         className={cn(
-                          "button",
+                          "h-12 px-4 text-base font-medium rounded-md",
                           link.active
-                            ? "bg-accent text-accent-foreground"
+                            ? "bg-accent text-accent-foreground shadow-md"
                             : "text-foreground/80 hover:bg-accent hover:text-accent-foreground"
                         )}
                         onClick={(e) => e.preventDefault()}
@@ -241,7 +241,7 @@ export const Navbar01 = React.forwardRef<HTMLElement, Navbar01Props>(
             <Button
               variant="ghost"
               size="sm"
-              className="button"
+              className="h-12 px-4 text-base font-medium rounded-md shadow-sm"
               onClick={(e) => {
                 e.preventDefault();
                 if (onSignInClick) onSignInClick();
@@ -251,7 +251,7 @@ export const Navbar01 = React.forwardRef<HTMLElement, Navbar01Props>(
             </Button>
             <Button
               size="sm"
-              className="text-sm font-medium px-4 h-9 rounded-md shadow-sm"
+              className="h-12 px-6 text-base font-semibold rounded-md shadow-md bg-primary text-background hover:brightness-95"
               onClick={(e) => {
                 e.preventDefault();
                 if (onCtaClick) onCtaClick();
