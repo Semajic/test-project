@@ -1,6 +1,7 @@
 import { Navbar01 } from '@/components/ui/shadcn-io/navbar-01';
 import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from '@/components/ui/carousel';
 import { Card, CardContent } from '@/components/ui/card';
+import { Button } from '@/components/ui/button';
 import Image from "../../public/restaurantbg.png";
 
 const imageData = [
