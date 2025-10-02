@@ -217,9 +217,8 @@ export const Navbar01 = React.forwardRef<HTMLElement, Navbar01Props>(
                   {navigationLinks.map((link, index) => (
                     <NavigationMenuItem key={index}>
                       <Button
-                        variant={link.active ? "secondary" : "ghost"}
+                        variant="nav"
                         className={cn(
-                          "h-12 px-4 text-base font-medium rounded-md",
                           link.active
                             ? "bg-accent text-accent-foreground shadow-md"
                             : "text-foreground/80 hover:bg-accent hover:text-accent-foreground"

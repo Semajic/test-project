@@ -33,19 +33,24 @@ const testimonials = [
 function HeroSection() {
   return (
     <div
-      className="flex w-full items-center justify-center"
-      style={{
-        backgroundImage: `url(${Image.src})`,
-        backgroundSize: 'cover',
-        backgroundPosition: 'center',
-        minHeight: '95vh',
-        width: '100vw',
-        overflow: 'visible',
-      }}
+      className="flex w-full h-full items-center justify-center bg-cover bg-center"
     >
-      <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-primary-foreground text-center drop-shadow-lg">
-        Welcome to Studio Null
-      </h1>
+      <div className="w-2/3 h-full bg-primary flex-col">
+        <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-6xl bg font-bold text-primary-foreground text-center drop-shadow-lg">
+          Welcome to Studio Null
+        </h1>
+        <p className="text-sm text-primary-foreground text-center">
+          Discover a culinary experience like no other
+        </p>
+      </div>
+      <div className="w-1/3 h-full bg-primary flex items-center justify-center px-4">
+        <img
+          src={Image.src}
+          alt="Hero Image"
+          className="object-cover w-full h-full"
+        />
+      </div>
+        
     </div>
   );
 }

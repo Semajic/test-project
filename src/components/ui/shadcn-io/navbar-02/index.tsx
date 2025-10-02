@@ -308,10 +308,16 @@ export const Navbar02 = React.forwardRef<HTMLElement, Navbar02Props>(
                   <NavigationMenuItem key={index}>
                     {link.submenu ? (
                       <>
-                        <NavigationMenuTrigger>
+                        <NavigationMenuTrigger
+                          className={cn(
+                            navigationMenuTriggerStyle(),
+                            'cursor-pointer p-6 text-base text-foreground hover:text-primary hover:bg-primary/10 focus:bg-primary/10 focus:text-primary font-extrabold uppercase tracking-wide rounded-full',
+                            'data-[state=open]:bg-primary/10 data-[state=open]:text-primary'
+                          )}
+                        >
                           {link.label}
                         </NavigationMenuTrigger>
-                        <NavigationMenuContent>
+                        <NavigationMenuContent className="md:bg-transparent data-[state=open]:md:bg-primary/10">
                           {link.type === 'description' && link.label === 'Features' ? (
                             <div className="grid gap-3 p-4 md:w-[400px] lg:w-[500px] lg:grid-cols-[.75fr_1fr]">
                               <div className="row-span-3">
@@ -404,7 +410,7 @@ export const Navbar02 = React.forwardRef<HTMLElement, Navbar02Props>(
             <Button
               variant="ghost"
               size="sm"
-              className="h-12 px-6 text-base text-foreground font-extrabold uppercase tracking-wide rounded-full bg-transparent hover:bg-transparent hover:text-primary cursor-pointer"
+              className="cursor-pointer p-6 text-base text-foreground hover:text-primary hover:bg-primary/10 focus:bg-primary/10 focus:text-primary font-extrabold uppercase tracking-wide rounded-full"
               onClick={(e) => {
               e.preventDefault();
               if (onSignInClick) onSignInClick();
@@ -457,12 +463,14 @@ const ListItem = React.forwardRef<
   };
 
   return (
-    <NavigationMenuLink asChild>
+      <NavigationMenuLink asChild>
       <a
         ref={ref}
         onClick={(e) => e.preventDefault()}
         className={cn(
           'block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-primary/10 hover:text-primary focus:bg-accent focus:text-accent-foreground cursor-pointer',
+          // Make dropdown items slightly more button-like / consistent with nav styles
+          'text-sm font-medium',
           className
         )}
         {...props}
