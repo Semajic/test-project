@@ -311,7 +311,7 @@ export const Navbar02 = React.forwardRef<HTMLElement, Navbar02Props>(
                         <NavigationMenuTrigger
                           className={cn(
                             navigationMenuTriggerStyle(),
-                            'cursor-pointer p-6 text-base text-foreground hover:text-primary hover:bg-primary/10 focus:bg-primary/10 focus:text-primary font-extrabold uppercase tracking-wide rounded-full',
+                            'cursor-pointer p-4 text-base sm:text-sm md:text-base lg:text-base text-foreground hover:text-primary hover:bg-primary/10 focus:bg-primary/10 focus:text-primary font-extrabold uppercase tracking-wide rounded-full',
                             'data-[state=open]:bg-primary/10 data-[state=open]:text-primary'
                           )}
                         >
@@ -392,7 +392,7 @@ export const Navbar02 = React.forwardRef<HTMLElement, Navbar02Props>(
                     ) : (
                       <NavigationMenuLink
                         href={link.href}
-                        className={cn(navigationMenuTriggerStyle(), 'cursor-pointer p-6 text-base text-foreground hover:text-primary hover:bg-primary/10 focus:bg-primary/10 focus:text-primary font-extrabold uppercase tracking-wide rounded-full')}
+                        className={cn(navigationMenuTriggerStyle(), 'cursor-pointer p-4 text-base text-foreground hover:text-primary hover:bg-primary/10 focus:bg-primary/10 focus:text-primary font-extrabold uppercase tracking-wide rounded-full')}
                         onClick={(e) => e.preventDefault()}
                       >
                         {link.label}
@@ -410,7 +410,7 @@ export const Navbar02 = React.forwardRef<HTMLElement, Navbar02Props>(
             <Button
               variant="ghost"
               size="sm"
-              className="cursor-pointer p-6 text-base text-foreground hover:text-primary hover:bg-primary/10 focus:bg-primary/10 focus:text-primary font-extrabold uppercase tracking-wide rounded-full"
+              className="cursor-pointer p-5 text-base text-foreground hover:text-primary hover:bg-primary/10 focus:bg-primary/10 focus:text-primary font-extrabold uppercase tracking-wide rounded-full"
               onClick={(e) => {
               e.preventDefault();
               if (onSignInClick) onSignInClick();
@@ -477,7 +477,7 @@ const ListItem = React.forwardRef<
       >
         {type === 'icon' && icon ? (
           <div className="flex items-start space-x-4">
-            <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-lg bg-primary/10 text-primary">
+            <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-lg bg-primary/10">
               {renderIconComponent(icon)}
             </div>
             <div className="space-y-1">

@@ -35,9 +35,9 @@ function HeroSection() {
     <div
       className="flex w-full h-full items-center justify-center bg-cover bg-center"
     >
-      <div className="w-2/3 h-full bg-primary flex-col">
-        <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-6xl bg font-bold text-primary-foreground text-center drop-shadow-lg">
-          Welcome to Studio Null
+      <div className="w-2/3 h-full bg-background text-left flex-col p-10">
+        <h1 className="text-xl sm:text-2xl md:text-3xl lg:text-5xl bg text-foreground drop-shadow-lg">
+          Amplify your team with elite legal talent, minus the elite fees.
         </h1>
         <p className="text-sm text-primary-foreground text-center">
           Discover a culinary experience like no other
