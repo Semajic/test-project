@@ -19,7 +19,6 @@ import {
   PopoverTrigger,
 } from '@/components/ui/popover';
 import { cn } from '@/lib/utils';
-import type { ComponentProps } from 'react';
 
 // Simple logo component for the navbar
 const Logo = (props: React.SVGAttributes<SVGElement>) => {
@@ -158,8 +157,8 @@ export const Navbar02 = React.forwardRef<HTMLElement, Navbar02Props>(
       logo = <Logo />,
       logoHref = '#',
       navigationLinks = defaultNavigationLinks,
-      signInText = 'Sign In',
-      signInHref = '#signin',
+  signInText = 'Sign In',
+  signInHref = '#signin',
       ctaText = 'Sign Up',
       ctaHref = '#sign-up',
       onSignInClick,
@@ -218,7 +217,7 @@ export const Navbar02 = React.forwardRef<HTMLElement, Navbar02Props>(
       <header
         ref={combinedRef}
         className={cn(
-          'sticky top-0 z-50 w-full border-b bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60 px-4 md:px-6 [&_*]:no-underline',
+          'sticky top-0 z-50 w-full border-b bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60 px-8 [&_*]:no-underline',
           className
         )}
         {...props}
@@ -298,7 +297,7 @@ export const Navbar02 = React.forwardRef<HTMLElement, Navbar02Props>(
                 <div className="text-2xl">
                   {logo}
                 </div>
-                <span className="hidden font-bold text-xl sm:inline-block">shadcn.io</span>
+                <span className="hidden font-bold text-3xl sm:inline-block">axiom</span>
               </button>
               {/* Navigation menu */}
               {!isMobile && (
@@ -327,7 +326,7 @@ export const Navbar02 = React.forwardRef<HTMLElement, Navbar02Props>(
                                     className="flex h-full w-full select-none flex-col justify-center items-center text-center rounded-md bg-gradient-to-b from-muted/50 to-muted p-6 no-underline outline-none focus:shadow-md cursor-pointer"
                                   >
                                     <div className="mb-3 text-xl font-medium">
-                                      shadcn.io
+                                      Axiom
                                     </div>
                                     <p className="text-sm leading-tight text-muted-foreground">
                                       Beautifully designed components built with Radix UI and Tailwind CSS.

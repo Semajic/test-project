@@ -10,7 +10,6 @@ const buttonVariants = cva(
     variants: {
       variant: {
         default: "bg-primary text-primary-foreground hover:bg-primary/90",
-        // Nav buttons (large, medium emphasis)
         nav: "h-12 px-4 text-base font-medium rounded-md",
         destructive:
           "bg-destructive text-destructive-foreground hover:bg-destructive/90",

@@ -16,6 +16,14 @@ bun dev
 
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
+## CLS / Image notes
+
+To reduce Cumulative Layout Shift (CLS) this project now:
+
+- Uses `next/image` for hero and logo images in `src/app/page.tsx` to ensure the browser reserves image space and leverages Next's image optimizations.
+- Provides a `CarouselSlide` helper in `src/components/ui/carousel.tsx` which renders a relative container with a fixed height (via Tailwind classes) so carousel slides reserve vertical space before their images load. Example usage:
+These changes should bring down CLS by avoiding unexpected layout shifts when images or dynamic content load.
+
 You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
 
 This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.

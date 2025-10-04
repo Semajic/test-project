@@ -1,19 +1,11 @@
 import { Navbar02 } from '@/components/ui/shadcn-io/navbar-02';
-import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from '@/components/ui/carousel';
-import { Card, CardContent } from '@/components/ui/card';
+// Card components intentionally not imported here; keep page focused on hero/testimonials. Import where needed in other pages/components.
+import heroImage from "../../public/restaurantbg.png";
+import vercelLogo from "../../public/vercel.svg";
+import Image from 'next/image';
 import { Button } from '@/components/ui/button';
-import Image from "../../public/restaurantbg.png";
 
-const imageData = [
-  { src: "/img1.png", alt: "Image 1" },
-  { src: "/img2.png", alt: "Image 2" },
-  { src: "/img3.png", alt: "Image 3" },
-  { src: "/img4.png", alt: "Image 4" },
-  { src: "/img5.png", alt: "Image 5" },
-  { src: "/img6.png", alt: "Image 6" },
-  { src: "/img7.png", alt: "Image 7" },
-  { src: "/img8.png", alt: "Image 8" },
-];
+// imageData removed (not currently used). Use next/image with reserved container sizes for galleries/carousels to avoid CLS.
 
 const testimonials = [
   {
@@ -33,65 +25,42 @@ const testimonials = [
 function HeroSection() {
   return (
     <div
-      className="flex w-full h-full items-center justify-center bg-cover bg-center"
+      className="flex flex-wrap w-full h-full items-center justify-center flex-col md:flex-row lg:flex-row sm:flex-col transition-all duration-500 p-8 sm:p-8 md:p-16 text-left gap-8"
     >
-      <div className="w-2/3 h-full bg-background text-left flex-col p-10">
-        <h1 className="text-xl sm:text-2xl md:text-3xl lg:text-5xl bg text-foreground drop-shadow-lg">
+      <div className="md:w-2/3 lg:w-1/2 w-full h-full text-left flex-col">
+        <h1 className="text-3xl sm:text-2xl md:text-3xl lg:text-5xl bg text-foreground drop-shadow-lg leading-tight">
           Amplify your team with elite legal talent, minus the elite fees.
         </h1>
-        <p className="text-sm text-primary-foreground text-center">
-          Discover a culinary experience like no other
+        <p className="sm:text-sm md:text-base lg:text-lg text-muted-foreground text-left py-4">
+          Whether you need to scale quickly or stretch limited resources, Axiom’s flexible engagements help you do more for less.
         </p>
+        <div className="flex flex-row gap-4">
+          <Button variant="default">Get Started</Button>
+          <Button variant="outline">Learn More</Button>
+        </div>
       </div>
-      <div className="w-1/3 h-full bg-primary flex items-center justify-center px-4">
-        <img
-          src={Image.src}
-          alt="Hero Image"
-          className="object-cover w-full h-full"
-        />
+      <div className="w-1/3 flex items-center justify-center">
+        <div className="relative w-full h-64 md:h-96 lg:h-[420px]">
+          <Image src={heroImage} alt="Hero Image" fill className="object-cover rounded-md" priority />
+        </div>
       </div>
-        
     </div>
   );
 }
 
-function GallerySection() {
+function StatsSection() {
   return (
-    <section className="w-full flex flex-col items-center mx-auto mb-12 px-4 bg-muted p-6">
-      <Card className="mb-8 w-full max-w-2xl bg-transparent border-0 shadow-none items-center">
-        <CardContent className="flex items-center px-10 py-4">
-          <svg height="80" width="4" className="mr-6">
-            <rect width="4" height="80" fill="var(--primary)" rx="2" />
-          </svg>
-          <div className="flex flex-col items-start">
-            <h2 className="text-3xl sm:text-md md:text-3xl lg:text-4xl font-semibold text-primary">Gallery</h2>
-            <p className="text-sm text-muted-foreground">A selection of our favorite moments</p>
-          </div>
-        </CardContent>
-      </Card>
-
-      <div className="w-full flex justify-center">
-        <Carousel className="w-full max-w-xs sm:max-w-xs md:max-w-sm lg:max-w-md xl:max-w-lg 2xl:max-w-xl" orientation="horizontal">
-          <CarouselContent>
-        {imageData.map((img, index) => (
-          <CarouselItem key={index}>
-            <div className="p-2">
-          <Card>
-            <CardContent className="flex items-center justify-center px-10 py-4">
-              <img
-            src={img.src}
-            alt={img.alt}
-            className="object-cover w-full h-full rounded-md"
-              />
-            </CardContent>
-          </Card>
-            </div>
-          </CarouselItem>
-        ))}
-          </CarouselContent>
-          <CarouselPrevious className="cursor-pointer" />
-          <CarouselNext className="cursor-pointer" />
-        </Carousel>
+    <section className="flex flex-wrap w-full h-full items-center justify-center flex-col md:flex-row lg:flex-row sm:flex-col transition-all duration-500 p-8 sm:p-8 md:p-16 text-left gap-8 bg-primary/10 overflow-hidden">
+      <div className="md:w-2/3 lg:w-1/2 w-full h-full text-left flex-col">
+        <h2 className="text-3xl font-semibold mb-6 text-primary text-left">
+          Uncertainty,{' '}
+          <span className="bg-gradient-to-r from-pink-500 via-purple-500 to-blue-500 bg-clip-text text-transparent">
+            meet confidence.
+          </span>
+        </h2>
+        <p className="max-w-2xl mb-6 text-muted-foreground text-left">
+          Strategically engage, integrate, and deploy top legal talent – exactly when and how you need it.
+        </p>
       </div>
     </section>
   );
@@ -99,7 +68,7 @@ function GallerySection() {
 
 function TestimonialsSection() {
   return (
-    <section className="w-full max-w-4xl mx-auto mt-12 mb-18 px-4">
+    <section className="w-full max-w-4xl mx-auto mt-12 mb-18 px-8 transition-all duration-500">
       <h2 className="text-3xl font-semibold mb-6 text-center text-primary">Testimonials</h2>
       <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
         {testimonials.map((testimonial, idx) => (
@@ -123,8 +92,8 @@ function Footer() {
         rel="noopener noreferrer"
       >
         Powered by{' '}
-        <span className="h-6 ml-2">
-          <img src="/vercel.svg" alt="Vercel Logo" width={72} height={16} />
+        <span className="h-6 ml-2 block relative w-[72px] h-[16px]">
+          <Image src={vercelLogo} alt="Vercel Logo" width={72} height={16} />
         </span>
       </a>
     </footer>
@@ -142,7 +111,7 @@ export default function Home() {
       {/* Main content */}
       <main className="flex w-full flex-1 flex-col items-center justify-center text-center font-poppins">
         <HeroSection />
-        <GallerySection />
+        <StatsSection />
         <TestimonialsSection />
       </main>
 
