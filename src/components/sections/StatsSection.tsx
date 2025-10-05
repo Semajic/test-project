@@ -3,7 +3,7 @@ import { Button } from '@/components/ui/button'
 
 export default function StatsSection() {
   return (
-    <section className="relative flex flex-col md:flex-row w-full h-full items-center justify-center transition-all duration-500 gap-8 px-8 py-12 md:px-16 md:py-32 text-left bg-primary/10 overflow-visible">
+  <section className="relative flex flex-col md:flex-row w-full h-full items-center justify-center transition-all duration-500 gap-8 px-8 py-12 md:px-16 md:py-32 pb-10 md:pb-28 text-left bg-primary/10 overflow-visible">
       {/* Text Section */}
       <div className="md:w-1/3 lg:w-1/3 w-full h-full text-left flex flex-col justify-center">
         <h2 className="text-4xl font-semibold mb-6 text-primary text-left">
@@ -62,17 +62,18 @@ export default function StatsSection() {
         </div>
       </div>
       {/* Decorative convex bow that protrudes down into the next section */}
-      <div className="absolute left-0 right-0 -bottom-28 w-full overflow-visible pointer-events-none z-10">
-        <svg
-          viewBox="0 0 1440 160"
-          preserveAspectRatio="none"
-          xmlns="http://www.w3.org/2000/svg"
-          className="w-full h-28 fill-current text-primary/10"
-          aria-hidden="true"
-        >
-          <path d="M0,0 L1440,0 L1440,64 C1080,0 360,0 0,64 Z" />
-        </svg>
-      </div>
+    <div className="absolute left-0 right-0 -bottom-28 w-full overflow-visible pointer-events-none z-10">
+      <svg
+        viewBox="0 0 1440 160"
+        preserveAspectRatio="none"
+        xmlns="http://www.w3.org/2000/svg"
+        className="w-full h-28 fill-current text-primary/10"
+        aria-hidden="true"
+      >
+        {/* Convex bow going down */}
+        <path d="M0,0 L0,64 Q720,160 1440,64 L1440,0 Z" />
+      </svg>
+    </div>
     </section>
   )
 }

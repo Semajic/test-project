@@ -2,6 +2,8 @@ import { Navbar02 } from '@/components/ui/shadcn-io/navbar-02';
 import HeroSection from '@/components/sections/HeroSection'
 import StatsSection from '@/components/sections/StatsSection'
 import ProveSection from '@/components/sections/ProveSection'
+import ServicesSection from '@/components/sections/ServicesSection'
+import StatsRepriseSection from '@/components/sections/StatsRepriseSection'
 import Footer from '@/components/ui/footer'
 
 // Footer is now in a separate component: src/components/ui/footer.tsx
@@ -19,6 +21,8 @@ export default function Home() {
         <HeroSection />
         <StatsSection />
         <ProveSection />
+        <ServicesSection />
+        <StatsRepriseSection />
       </main>
 
       {/* Footer */}

@@ -4,7 +4,7 @@ import { CarouselSizes } from '@/components/ui/carousel'
 
 export default function ProveSection() {
   return (
-    <section className="w-full mx-auto flex flex-col items-center mt-12 mb-18 py-12 md:py-28 px-8 transition-all duration-500">
+    <section className="w-full mx-auto flex flex-col items-center mt-12 mb-18 py-24 pb-8 md:py-28 px-8 transition-all duration-500">
       <h2 className="text-4xl font-regular mb-6 text-center text-foreground ">The right legal talent, right when you need it.</h2>
       <p className="text-center text-lg text-muted-foreground mb-6 max-w-2xl">
       Scale your team with proven legal professionals who set a higher bar for quality: Only the top{' '}
