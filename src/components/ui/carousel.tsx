@@ -6,6 +6,7 @@ import useEmblaCarousel, {
 } from "embla-carousel-react"
 import { ArrowLeft, ArrowRight } from "lucide-react"
 import { Card, CardContent } from "@/components/ui/card"
+import Autoplay from "embla-carousel-autoplay"
 
 import { cn } from "@/lib/utils"
 import { Button } from "@/components/ui/button"
@@ -261,6 +262,34 @@ function CarouselSizes() {
   )
 }
 
+function CarouselPlugin() {
+  const plugin = React.useRef(
+    Autoplay({ delay: 5000, stopOnInteraction: true })
+  )
+  return (
+    <Carousel
+      plugins={[plugin.current]}
+      className="w-sm max-w-4xl"
+      onMouseEnter={plugin.current.stop}
+      onMouseLeave={plugin.current.reset}
+    >
+      <CarouselContent>
+        {Array.from({ length: 5 }).map((_, index) => (
+          <CarouselItem key={index}>
+            <div className="p-1">
+              <Card>
+                <CardContent className="flex aspect-square items-center justify-center p-6">
+                  <span className="text-4xl font-semibold">{index + 1}</span>
+                </CardContent>
+              </Card>
+            </div>
+          </CarouselItem>
+        ))}
+      </CarouselContent>
+    </Carousel>
+  )
+}
+
 export {
   type CarouselApi,
   Carousel,
@@ -269,4 +298,5 @@ export {
   CarouselPrevious,
   CarouselNext,
   CarouselSizes,
+  CarouselPlugin,
 }

@@ -1,8 +1,10 @@
+"use client"
 import * as React from 'react'
-import Image from 'next/image'
-import heroImage from '../../../public/restaurantbg.png'
 import { Button } from '@/components/ui/button'
+import { CarouselPlugin } from '@/components/ui/carousel'
+import Autoplay from 'embla-carousel-autoplay'
 
+// ...existing code...
 export default function HeroSection() {
   return (
     <div
@@ -25,9 +27,7 @@ export default function HeroSection() {
         </div>
       </div>
       <div className="w-1/3 flex items-center justify-center">
-        <div className="relative w-full h-64 md:h-96 lg:h-[420px]">
-          <Image src={heroImage} alt="Hero Image" fill className="object-cover rounded-md" priority />
-        </div>
+        <CarouselPlugin />
       </div>
     </div>
   )

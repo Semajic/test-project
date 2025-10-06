@@ -16,7 +16,7 @@ const services = [
 export default function ServicesSection() {
     return (
     <section className="relative flex flex-col items-center justify-center gap-6 p-8 py-24 md:py-32 pb-10 md:pb-28 h-full w-full transition-all duration-500 bg-secondary border-none">
-            <h2 className="text-white font-bold text-2xl text-center">We’ve got you covered.<br />Explore our areas of expertise.</h2>
+            <h2 className="text-white font-bold text-4xl text-center">We’ve got you covered.<br />Explore our areas of expertise.</h2>
             {/* Desktop grid */}
             <div className="hidden md:grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 mt-6">
                 {services.map((service) => (
@@ -36,7 +36,7 @@ export default function ServicesSection() {
                     {services.map((service) => (
                         <AccordionItem key={service} value={service} className="mb-4 last:mb-0 border-none">
                             <AccordionTrigger
-                                className="cursor-pointer bg-[#3a4ded] text-white p-4 hover:bg-background/10 transition-colors rounded-t-lg data-[state=open]:rounded-b-none"
+                                className="cursor-pointer bg-[#3a4ded]/30 text-white p-4 hover:bg-background/10 transition-colors rounded-t-lg data-[state=open]:rounded-b-none [&>svg]:text-white"
                             >
                                 {service}
                             </AccordionTrigger>
