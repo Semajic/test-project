@@ -36,7 +36,7 @@ const footerColumns = [
 
 function FooterColumn({ title, items }: { title: string; items: readonly string[] }) {
     return (
-        <div className="w-full">
+        <div className="w-full font-poppins">
             {/* Desktop */}
             <div className="hidden lg:block">
                 <h4 className="text-sm font-semibold mb-3 text-primary">{title}</h4>
@@ -52,7 +52,7 @@ function FooterColumn({ title, items }: { title: string; items: readonly string[
             <div className="block lg:hidden">
                 <Accordion type="single" collapsible>
                     <AccordionItem value={title}>
-                        <AccordionTrigger className="px-0 py-2">{title}</AccordionTrigger>
+                        <AccordionTrigger className="px-0 py-2 cursor-pointer">{title}</AccordionTrigger>
                         <AccordionContent>
                             <ul className="pl-2 py-2 space-y-2 text-muted-foreground">
                                 {items.map(item => (
@@ -71,7 +71,7 @@ function FooterColumn({ title, items }: { title: string; items: readonly string[
 
 export default function Footer() {
     return (
-        <footer className="w-full bg-background border-t px-8">
+        <footer className="w-full bg-background border-t px-8 font-poppins">
             {/* CTA box */}
             <div className="max-w-7xl mx-auto py-10">
                 <div className="bg-card/80 border border-border rounded-xl p-8 flex flex-col md:flex-row items-center justify-between gap-6">

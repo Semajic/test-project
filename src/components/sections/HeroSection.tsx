@@ -1,7 +1,14 @@
 "use client"
 import * as React from 'react'
 import { Button } from '@/components/ui/button'
-import { CarouselPlugin } from '@/components/ui/carousel'
+import {
+  Carousel,
+  CarouselContent,
+  CarouselItem,
+  CarouselPrevious,
+  CarouselNext,
+} from '@/components/ui/carousel'
+import { Card, CardContent } from '@/components/ui/card'
 import Autoplay from 'embla-carousel-autoplay'
 
 // ...existing code...
@@ -26,8 +33,67 @@ export default function HeroSection() {
           </Button>
         </div>
       </div>
-      <div className="w-1/3 flex items-center justify-center">
-        <CarouselPlugin />
+      <div className="w-full md:w-1/3 flex items-center justify-center">
+        <Carousel
+          opts={{ align: 'center' }}
+          plugins={[Autoplay({ delay: 4500, stopOnInteraction: true })]}
+          className="w-full max-w-md relative hover:scale-105 transition-all duration-300"
+        >
+          <CarouselContent>
+            {React.useMemo(
+              () =>
+                [
+                  {
+                    id: 1,
+                    title: 'Scale rapidly',
+                    description:
+                      'Bring on extra legal bandwidth exactly when you need it — no long-term hiring overhead.',
+                    image: '/img1.png',
+                  },
+                  {
+                    id: 2,
+                    title: 'Stretch your budget',
+                    description:
+                      'Get senior-level legal expertise at a fraction of the cost of traditional hires or big firms.',
+                    image: '/img2.png',
+                  },
+                  {
+                    id: 3,
+                    title: 'Specialist squads',
+                    description:
+                      'On-demand teams tailored to your case, sector, and workflow to deliver faster outcomes.',
+                    image: '/img3.png',
+                  },
+                  {
+                    id: 4,
+                    title: 'Seamless handoffs',
+                    description:
+                      'Integrated knowledge transfer and collaboration so your in-house team stays productive.',
+                    image: '/img4.png',
+                  },
+                ].map((slide) => (
+                  <CarouselItem key={slide.id} className="basis-full">
+                    <div className="p-1">
+                      <Card>
+                        <CardContent className="flex flex-col gap-4 items-center justify-center p-8">
+                          <img
+                            src={slide.image}
+                            alt={slide.title}
+                            className="w-full h-72 object-cover rounded-md"
+                          />
+                          <div className="text-center">
+                            <h3 className="text-lg font-semibold">{slide.title}</h3>
+                            <p className="text-sm text-muted-foreground">{slide.description}</p>
+                          </div>
+                        </CardContent>
+                      </Card>
+                    </div>
+                  </CarouselItem>
+                )),
+              []
+            )}
+          </CarouselContent>
+        </Carousel>
       </div>
     </div>
   )

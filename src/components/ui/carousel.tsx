@@ -270,8 +270,6 @@ function CarouselPlugin() {
     <Carousel
       plugins={[plugin.current]}
       className="w-sm max-w-4xl"
-      onMouseEnter={plugin.current.stop}
-      onMouseLeave={plugin.current.reset}
     >
       <CarouselContent>
         {Array.from({ length: 5 }).map((_, index) => (

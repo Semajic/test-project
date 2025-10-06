@@ -23,7 +23,7 @@ export default function StatsRepriseSection() {
                 ))}
             </div>
 
-            <div className="flex flex-col items-center justify-center bg-white rounded-tl-4xl rounded-tr-4xl p-8 pb-12 shadow-md text-center max-w-6xl mx-auto">
+            <div className="flex flex-col items-center justify-center bg-white rounded-tl-4xl rounded-tr-4xl p-8 pb-2 shadow-md text-center max-w-6xl mx-auto">
                 <h2 className="m-0 text-4xl font-semibold text-white">You’re in good company.</h2>
                 <p className="mt-4 text-lg text-white/90">This is the main card content. You can add more details or actions here.</p>
 
@@ -38,11 +38,17 @@ export default function StatsRepriseSection() {
                     </div>
                 </div>
 
-                <div className="flex flex-row items-center justify-center gap-4 mt-8 flex-wrap mb-16">
-                    <Button variant="default" className="h-12 px-6 md:px-16 uppercase text-base text-background font-extrabold uppercase tracking-wide rounded-full shadow-md hover:bg-primary/90 cursor-pointer transition-all duration-300">
+                <div className="flex flex-row flex-wrap items-center justify-center gap-4 mt-8 mb-16">
+                    <Button
+                        variant="default"
+                        className="h-12 px-6 md:px-16 uppercase text-base text-background font-extrabold tracking-wide rounded-full shadow-md hover:bg-primary/90 cursor-pointer transition-all duration-300 w-full sm:w-auto"
+                    >
                         Find a Lawyer Now
                     </Button>
-                    <Button variant="outline" className="h-12 px-6 md:px-16 uppercase text-base text-primary font-extrabold uppercase tracking-wide rounded-full shadow-md border-primary hover:bg-primary hover:text-background cursor-pointer transition-all duration-300">
+                    <Button
+                        variant="outline"
+                        className="h-12 px-6 md:px-16 uppercase text-base text-primary font-extrabold tracking-wide rounded-full shadow-md border-primary hover:bg-primary hover:text-background cursor-pointer transition-all duration-300 w-full sm:w-auto"
+                    >
                         Browse Case Studies
                     </Button>
                 </div>

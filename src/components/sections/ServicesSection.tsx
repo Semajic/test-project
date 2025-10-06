@@ -22,8 +22,8 @@ export default function ServicesSection() {
                 {services.map((service) => (
                     <Button
                         key={service}
-                        variant="outline"
-                        className="p-4 bg-blue-900 rounded-lg text-center text-white hover:shadow-lg transition-shadow duration-300 w-full"
+                        variant="default"
+                        className="p-4 bg-[#3a4ded]/30 rounded-lg text-center text-white cursor-pointer hover:shadow-lg transition-all duration-150 w-full"
                     >
                         {service}
                     </Button>

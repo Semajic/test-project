@@ -20,11 +20,11 @@ export default function ProveSection() {
       <div className="w-full justify-center flex flex-row gap-4 px-8 mt-8 flex-wrap transition-all duration-300">
         <Button
           variant="default"
-          className="h-12 px-6 md:px-16 uppercase text-base text-background font-extrabold uppercase tracking-wide rounded-full shadow-md hover:bg-primary/90 cursor-pointer transition-all duration-300 w-full sm:w-auto"
+          className="h-12 px-16 w-full sm:w-auto uppercase text-base text-background font-extrabold uppercase tracking-wide rounded-full shadow-md hover:bg-primary/90 cursor-pointer transition-all duration-300"
         >
           Find a Lawyer Now
         </Button>
-        <Button variant="outline" className="h-12 px-6 md:px-16 w-full sm:w-auto uppercase text-base text-primary font-extrabold uppercase tracking-wide rounded-full shadow-md border-primary hover:bg-primary hover:text-background cursor-pointer transition-all duration-300">
+        <Button variant="outline" className="h-12 px-16 w-full sm:w-auto uppercase text-base text-primary font-extrabold uppercase tracking-wide rounded-full shadow-md border-primary hover:bg-primary hover:text-background cursor-pointer transition-all duration-300">
           Talk to Our Team
         </Button>
       </div>
