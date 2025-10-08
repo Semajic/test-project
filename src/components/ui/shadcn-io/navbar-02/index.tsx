@@ -4,6 +4,7 @@ import * as React from 'react';
 import { useEffect, useState, useRef } from 'react';
 import { BookOpenIcon, InfoIcon, LifeBuoyIcon } from 'lucide-react';
 import { Button } from '@/components/ui/button';
+import Link from 'next/link';
 import {
   NavigationMenu,
   NavigationMenuContent,
@@ -104,27 +105,37 @@ export interface Navbar02Props extends React.HTMLAttributes<HTMLElement> {
 
 // Default navigation links
 const defaultNavigationLinks: Navbar02NavItem[] = [
-  { href: '#', label: 'Home' },
+  { href: '/', label: 'Home' },
   {
-    label: 'Features',
+    label: 'Why Axiom',
     submenu: true,
     type: 'description',
     items: [
       {
-        href: '#components',
-        label: 'Components',
+        href: '/about/what-we-do',
+        label: 'What We Do',
         description: 'Browse all components in the library.',
       },
       {
-        href: '#documentation',
-        label: 'Documentation',
+        href: '/about',
+        label: 'How We Help',
         description: 'Learn how to use the library.',
       },
       {
-        href: '#templates',
-        label: 'Templates',
+        href: '/about',
+        label: 'Case Studies',
         description: 'Pre-built layouts for common use cases.',
       },
+      {
+        href: '/about',
+        label: 'Diversity and Inclusion',
+        description: 'Pre-built layouts for common use cases.',
+      },
+      {
+        href: '/about',
+        label: 'Client FAQ',
+        description: 'Stay up to date with the latest news.',
+      }
     ],
   },
   {
@@ -317,72 +328,97 @@ export const Navbar02 = React.forwardRef<HTMLElement, Navbar02Props>(
                           {link.label}
                         </NavigationMenuTrigger>
                         <NavigationMenuContent className="md:bg-transparent data-[state=open]:md:bg-primary/10">
-                          {link.type === 'description' && link.label === 'Features' ? (
+                          {(link.type === 'description' && link.label === 'Features') ? (
                             <div className="grid gap-3 p-4 md:w-[400px] lg:w-[500px] lg:grid-cols-[.75fr_1fr]">
-                              <div className="row-span-3">
-                                <NavigationMenuLink asChild>
-                                  <button
-                                    onClick={(e) => e.preventDefault()}
-                                    className="flex h-full w-full select-none flex-col justify-center items-center text-center rounded-md bg-gradient-to-b from-muted/50 to-muted p-6 no-underline outline-none focus:shadow-md cursor-pointer"
-                                  >
-                                    <div className="mb-3 text-xl font-medium">
-                                      Axiom
-                                    </div>
-                                    <p className="text-sm leading-tight text-muted-foreground">
-                                      Beautifully designed components built with Radix UI and Tailwind CSS.
-                                    </p>
-                                  </button>
-                                </NavigationMenuLink>
-                              </div>
                               {link.items?.map((item, itemIndex) => (
-                                <ListItem
-                                  key={itemIndex}
-                                  title={item.label}
-                                  href={item.href}
-                                  type={link.type}
-                                >
+                              <Link
+                                key={itemIndex}
+                                href={item.href}
+                                className={cn(
+                                'block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-primary/10 hover:text-primary focus:bg-accent focus:text-accent-foreground cursor-pointer',
+                                'text-sm font-medium'
+                                )}
+                                tabIndex={0}
+                              >
+                                <div className="text-base font-medium leading-none">{item.label}</div>
+                                {item.description && (
+                                <p className="line-clamp-2 text-sm leading-snug text-muted-foreground">
                                   {item.description}
-                                </ListItem>
+                                </p>
+                                )}
+                              </Link>
                               ))}
                             </div>
-                          ) : link.type === 'simple' ? (
+                            ) : link.type === 'simple' ? (
                             <div className="grid w-[400px] gap-3 p-4 md:w-[500px] md:grid-cols-2 lg:w-[600px]">
                               {link.items?.map((item, itemIndex) => (
-                                <ListItem
-                                  key={itemIndex}
-                                  title={item.label}
-                                  href={item.href}
-                                  type={link.type}
-                                >
+                              <Link
+                                key={itemIndex}
+                                href={item.href}
+                                className={cn(
+                                'block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-primary/10 hover:text-primary focus:bg-accent focus:text-accent-foreground cursor-pointer',
+                                'text-sm font-medium'
+                                )}
+                                tabIndex={0}
+                              >
+                                <div className="text-base font-medium leading-none">{item.label}</div>
+                                {item.description && (
+                                <p className="line-clamp-2 text-sm leading-snug text-muted-foreground">
                                   {item.description}
-                                </ListItem>
+                                </p>
+                                )}
+                              </Link>
                               ))}
                             </div>
-                          ) : link.type === 'icon' ? (
+                            ) : link.type === 'icon' ? (
                             <div className="grid w-[400px] gap-3 p-4">
                               {link.items?.map((item, itemIndex) => (
-                                <ListItem
-                                  key={itemIndex}
-                                  title={item.label}
-                                  href={item.href}
-                                  icon={item.icon}
-                                  type={link.type}
-                                >
-                                  {item.description}
-                                </ListItem>
+                              <Link
+                                key={itemIndex}
+                                href={item.href}
+                                className={cn(
+                                'block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-primary/10 hover:text-primary focus:bg-accent focus:text-accent-foreground cursor-pointer',
+                                'text-sm font-medium'
+                                )}
+                                tabIndex={0}
+                              >
+                                <div className="flex items-start space-x-4">
+                                <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-lg bg-primary/10">
+                                  {item.icon === 'BookOpenIcon' && <BookOpenIcon className="h-5 w-5" />}
+                                  {item.icon === 'LifeBuoyIcon' && <LifeBuoyIcon className="h-5 w-5" />}
+                                  {item.icon === 'InfoIcon' && <InfoIcon className="h-5 w-5" />}
+                                </div>
+                                <div className="space-y-1">
+                                  <div className="text-base font-medium leading-tight">{item.label}</div>
+                                  {item.description && (
+                                  <p className="line-clamp-2 text-sm leading-snug text-muted-foreground">
+                                    {item.description}
+                                  </p>
+                                  )}
+                                </div>
+                                </div>
+                              </Link>
                               ))}
                             </div>
-                          ) : (
+                            ) : (
                             <div className="grid gap-3 p-4">
                               {link.items?.map((item, itemIndex) => (
-                                <ListItem
-                                  key={itemIndex}
-                                  title={item.label}
-                                  href={item.href}
-                                  type={link.type}
-                                >
+                              <Link
+                                key={itemIndex}
+                                href={item.href}
+                                className={cn(
+                                'block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-primary/10 hover:text-primary focus:bg-accent focus:text-accent-foreground cursor-pointer',
+                                'text-sm font-medium'
+                                )}
+                                tabIndex={0}
+                              >
+                                <div className="text-base font-medium leading-none">{item.label}</div>
+                                {item.description && (
+                                <p className="line-clamp-2 text-sm leading-snug text-muted-foreground">
                                   {item.description}
-                                </ListItem>
+                                </p>
+                                )}
+                              </Link>
                               ))}
                             </div>
                           )}

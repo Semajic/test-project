@@ -23,7 +23,7 @@ export default function ServicesSection() {
                     <Button
                         key={service}
                         variant="default"
-                        className="p-4 bg-[#3a4ded]/30 rounded-lg text-center text-white cursor-pointer hover:shadow-lg transition-all duration-150 w-full"
+                        className="h-12 px-6 bg-[#3a4ded]/30 rounded-lg text-center text-white cursor-pointer hover:shadow-lg transition-all duration-150 w-full"
                     >
                         {service}
                     </Button>
