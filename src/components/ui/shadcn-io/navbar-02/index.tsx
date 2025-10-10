@@ -228,7 +228,7 @@ export const Navbar02 = React.forwardRef<HTMLElement, Navbar02Props>(
       <header
         ref={combinedRef}
         className={cn(
-          'sticky top-0 z-50 w-full border-b bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60 px-8 [&_*]:no-underline',
+          'sticky top-0 z-50 w-full font-poppins border-b bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60 px-8 [&_*]:no-underline',
           className
         )}
         {...props}
@@ -248,7 +248,7 @@ export const Navbar02 = React.forwardRef<HTMLElement, Navbar02Props>(
                     <HamburgerIcon />
                   </Button>
                 </PopoverTrigger>
-                <PopoverContent align="start" className="w-64 p-1">
+                <PopoverContent align="start" className="w-64 p-1 font-poppins">
                   <NavigationMenu className="max-w-none">
                     <NavigationMenuList className="flex-col items-start gap-0">
                       {navigationLinks.map((link, index) => (
