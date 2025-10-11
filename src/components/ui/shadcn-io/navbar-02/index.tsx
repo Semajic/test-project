@@ -238,66 +238,66 @@ export const Navbar02 = React.forwardRef<HTMLElement, Navbar02Props>(
           <div className="flex items-center gap-2">
             {/* Mobile menu trigger */}
             {isMobile && (
-              <Popover>
+                <Popover>
                 <PopoverTrigger asChild>
                   <Button
-                    className="group h-9 w-9 hover:bg-accent hover:text-accent-foreground"
-                    variant="ghost"
-                    size="icon"
+                  className="group h-9 w-9 hover:bg-accent hover:text-accent-foreground"
+                  variant="ghost"
+                  size="icon"
                   >
-                    <HamburgerIcon />
+                  <HamburgerIcon />
                   </Button>
                 </PopoverTrigger>
                 <PopoverContent align="start" className="w-64 p-1 font-poppins">
                   <NavigationMenu className="max-w-none">
-                    <NavigationMenuList className="flex-col items-start gap-0">
-                      {navigationLinks.map((link, index) => (
-                        <NavigationMenuItem key={index} className="w-full">
-                          {link.submenu ? (
-                            <>
-                              <div className="text-muted-foreground px-2 py-1.5 text-xs font-medium">
-                                {link.label}
-                              </div>
-                              <ul>
-                                {link.items?.map((item, itemIndex) => (
-                                  <li key={itemIndex}>
-                                    <button
-                                      onClick={(e) => e.preventDefault()}
-                                      className="flex w-full items-center rounded-md px-3 py-2 text-sm font-medium transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground cursor-pointer no-underline"
-                                    >
-                                      {item.label}
-                                    </button>
-                                  </li>
-                                ))}
-                              </ul>
-                            </>
-                          ) : (
-                            <button
-                              onClick={(e) => e.preventDefault()}
-                              className="flex w-full items-center rounded-md px-3 py-2 text-sm font-medium transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground cursor-pointer no-underline"
-                            >
-                              {link.label}
-                            </button>
-                          )}
-                          {/* Add separator between different types of items */}
-                          {index < navigationLinks.length - 1 &&
-                            ((!link.submenu && navigationLinks[index + 1].submenu) ||
-                              (link.submenu && !navigationLinks[index + 1].submenu) ||
-                              (link.submenu &&
-                                navigationLinks[index + 1].submenu &&
-                                link.type !== navigationLinks[index + 1].type)) && (
-                              <div
-                                role="separator"
-                                aria-orientation="horizontal"
-                                className="bg-border -mx-1 my-1 h-px w-full"
-                              />
-                            )}
-                        </NavigationMenuItem>
-                      ))}
-                    </NavigationMenuList>
+                  <NavigationMenuList className="flex-col items-start gap-0">
+                    {navigationLinks.map((link, index) => (
+                    <NavigationMenuItem key={index} className="w-full">
+                      {link.submenu ? (
+                      <>
+                        <div className="text-muted-foreground px-2 py-1.5 text-xs font-medium">
+                        {link.label}
+                        </div>
+                        <ul>
+                        {link.items?.map((item, itemIndex) => (
+                          <li key={itemIndex}>
+                          <Link
+                            href={item.href}
+                            className="flex w-full items-center rounded-md px-3 py-2 text-sm font-medium transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground cursor-pointer no-underline"
+                          >
+                            {item.label}
+                          </Link>
+                          </li>
+                        ))}
+                        </ul>
+                      </>
+                      ) : (
+                      <Link
+                        href={link.href ?? '#'}
+                        className="flex w-full items-center rounded-md px-3 py-2 text-sm font-medium transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground cursor-pointer no-underline"
+                      >
+                        {link.label}
+                      </Link>
+                      )}
+                      {/* Add separator between different types of items */}
+                      {index < navigationLinks.length - 1 &&
+                      ((!link.submenu && navigationLinks[index + 1].submenu) ||
+                        (link.submenu && !navigationLinks[index + 1].submenu) ||
+                        (link.submenu &&
+                        navigationLinks[index + 1].submenu &&
+                        link.type !== navigationLinks[index + 1].type)) && (
+                        <div
+                        role="separator"
+                        aria-orientation="horizontal"
+                        className="bg-border -mx-1 my-1 h-px w-full"
+                        />
+                      )}
+                    </NavigationMenuItem>
+                    ))}
+                  </NavigationMenuList>
                   </NavigationMenu>
                 </PopoverContent>
-              </Popover>
+                </Popover>
             )}
             {/* Main nav */}
             <div className="flex items-center gap-6">
@@ -328,7 +328,7 @@ export const Navbar02 = React.forwardRef<HTMLElement, Navbar02Props>(
                           {link.label}
                         </NavigationMenuTrigger>
                         <NavigationMenuContent className="md:bg-transparent data-[state=open]:md:bg-primary/10">
-                          {(link.type === 'description' && link.label === 'Features') ? (
+                          {(link.type === 'description' && link.label === 'Why Axiom') ? (
                             <div className="grid gap-3 p-4 md:w-[400px] lg:w-[500px] lg:grid-cols-[.75fr_1fr]">
                               {link.items?.map((item, itemIndex) => (
                               <Link
@@ -425,13 +425,15 @@ export const Navbar02 = React.forwardRef<HTMLElement, Navbar02Props>(
                         </NavigationMenuContent>
                       </>
                     ) : (
-                      <NavigationMenuLink
-                        href={link.href}
-                        className={cn(navigationMenuTriggerStyle(), 'cursor-pointer p-4 text-base text-foreground hover:text-primary hover:bg-primary/10 focus:bg-primary/10 focus:text-primary font-extrabold uppercase tracking-wide rounded-full')}
-                        onClick={(e) => e.preventDefault()}
+                      <Link
+                        href={link.href ?? '#'}
+                        className={cn(
+                          navigationMenuTriggerStyle(),
+                          'cursor-pointer p-4 text-base text-foreground hover:text-primary hover:bg-primary/10 focus:bg-primary/10 focus:text-primary font-extrabold uppercase tracking-wide rounded-full'
+                        )}
                       >
                         {link.label}
-                      </NavigationMenuLink>
+                      </Link>
                     )}
                   </NavigationMenuItem>
                 ))}
