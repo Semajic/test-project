@@ -1,14 +1,12 @@
 "use client"
 import { useEffect, useState } from 'react'
-import { Navbar02 } from '@/components/ui/shadcn-io/navbar-02';
-import HeroSection from '@/components/sections/HeroSection'
-import dynamic from 'next/dynamic';
-import Footer from '@/components/ui/footer'
+import HeroSection from '../components/sections/Hero'
+import dynamic from 'next/dynamic'
 
-const StatsSection = dynamic(() => import('@/components/sections/StatsSection'), { ssr: false })
-const ProveSection = dynamic(() => import('@/components/sections/ProveSection'), { ssr: false })
-const ServicesSection = dynamic(() => import('@/components/sections/ServicesSection'), { ssr: false })
-const StatsRepriseSection = dynamic(() => import('@/components/sections/StatsRepriseSection'), { ssr: false })
+const StatsSection = dynamic(() => import('../components/sections/Stats'), { ssr: false })
+const ProveSection = dynamic(() => import('../components/sections/Prove'), { ssr: false })
+const ServicesSection = dynamic(() => import('../components/sections/Services'), { ssr: false })
+const StatsRepriseSection = dynamic(() => import('../components/sections/StatsReprise'), { ssr: false })
 
 function DeferredBelowTheFold() {
   const [show, setShow] = useState(false)
